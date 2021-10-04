@@ -1,64 +1,53 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
-void main() => runApp(TitlePage());
+void main() => runApp(MaterialApp(
+      title: "Exercise App",
+      home: FirstPage(),
+    ));
 
-class TitlePage extends StatelessWidget {
-  const TitlePage({Key? key}) : super(key: key);
+class FirstPage extends StatelessWidget {
+  const FirstPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(
-            title: Center(
-              child: Text('Exercise 1 '),
-            ),
-            backgroundColor: Colors.blue[500],
-          ),
-          backgroundColor: Colors.white,
-          body: SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Center(
-                  child: Image(
-                    image: NetworkImage(
-                        'https://img.freepik.com/free-vector/people-waving-hand-illustration-concept_52683-29825.jpg?size=626&ext=jpg'),
+        appBar: AppBar(title: Text('Exercise 1'), backgroundColor: Colors.blue),
+        body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Center(
+                child: Image(
+                  image: NetworkImage(
+                    'https://image.freepik.com/free-vector/group-people-talking-each-other_179970-994.jpg',
                   ),
                 ),
-                Text(
-                  'Written By : Mark Vincent Atinon, Natalie Jane Pacificar, Jed Adrian Denosta',
-                ),
-                SizedBox(
-                  height: 20.0,
-                  width: 150.0,
-                  child: Divider(),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SecondPage()),
-                    );
-                  },
-                  child: const Text('Activity Number 2'),
-                  style: TextButton.styleFrom(
-                      backgroundColor: Colors.blue, primary: Colors.white),
-                ),
-              ],
-            ),
-          )),
+              ),
+              Text(
+                  'Written By : Mark Vincent Atinon, Jed Adrian Denosta, Natalie Jane Pacificar'),
+              ElevatedButton(
+                child: const Text('Open route'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SecondRoute()),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
 
-class SecondPage extends StatelessWidget {
-  const SecondPage({Key? key}) : super(key: key);
+class SecondRoute extends StatelessWidget {
+  const SecondRoute({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold();
   }
 }
