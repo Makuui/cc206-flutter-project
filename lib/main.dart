@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'loginScreen.dart';
 
 void main() => runApp(MaterialApp(
       title: "Exercise App",
@@ -52,60 +53,17 @@ class FirstPage extends StatelessWidget {
   }
 }
 
+
 class SecondRoute extends StatelessWidget {
   const SecondRoute({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Exerise 2',
-        ),
-      ),
-      body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 150.0,
-            ),
-            Center(
-              child: Text(
-                'Simple Log in Page Flutter',
-                style: TextStyle(fontSize: 20, color: Colors.blue),
-              ),
-            ),
-            SizedBox(
-              height: 60.0,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Email',
-                labelStyle: TextStyle(fontSize: 20.0),
-                filled: true,
-              ),
-            ),
-            SizedBox(
-              height: 30.0,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Password',
-                labelStyle: TextStyle(fontSize: 20.0),
-                filled: true.
-              ),
-            ),
-            SizedBox(
-              height: 30.0,
-            ),
-            ElevatedButton(
-                child: const Text('Log in'),
-                onPressed: () {
-                },
-              ),
-          ],
-        ),
-      ),
+    return MaterialApp(
+      title: 'Exercise 2',
+      debugShowCheckedModeBanner: false,
+      home: LoginScreen(),
+
     );
   }
 }
