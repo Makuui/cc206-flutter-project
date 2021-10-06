@@ -11,6 +11,8 @@ class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
+String emailText ='';
+String passText = '';
 
 class _LoginScreenState extends State<LoginScreen> {
   @override
@@ -83,7 +85,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           height: 60,
                           child: TextField(
-                            onChanged: (emailText) {
+                            onChanged: (emailval) {
+                              setState(() {
+                                emailText = emailval;
+                              });
                             },
                             keyboardType: TextInputType.emailAddress,
                             style: TextStyle(
@@ -136,7 +141,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           height: 60,
                           child: TextField(
-                            onChanged: (passText) {
+                            onChanged: (passVal) {
+                              setState(() {
+                                passText = passVal;
+                              });
                             },
                             obscureText: true,
                             style: TextStyle(
@@ -167,7 +175,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         elevation: 5,
                         onPressed: () {
                           setState(() {
-                            //output here
+                            print('The Username is $emailText');
+                            print('The Password is $passText');
                           });
                         },
                         padding: EdgeInsets.all(15),
