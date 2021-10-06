@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
@@ -8,130 +10,6 @@ class LoginScreen extends StatefulWidget {
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
-}
-
-Widget buildEmail() {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
-      Text(
-        'Email',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 16.0,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      SizedBox(
-        height: 10.0,
-      ),
-      Container(
-        alignment: Alignment.centerLeft,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              offset: Offset(0, 2),
-            ),
-          ],
-        ),
-        height: 60,
-        child: TextField(
-          keyboardType: TextInputType.emailAddress,
-          style: TextStyle(
-            color: Colors.black,
-          ),
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14),
-              prefixIcon: Icon(
-                Icons.email,
-                color: Color(0xff0da8f4),
-              ),
-              hintText: 'Email',
-              hintStyle: TextStyle(
-                color: Colors.black,
-              )),
-        ),
-      ),
-    ],
-  );
-}
-
-Widget buildPassword() {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
-      Text(
-        'Password',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 16.0,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      SizedBox(
-        height: 10.0,
-      ),
-      Container(
-        alignment: Alignment.centerLeft,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              offset: Offset(0, 2),
-            ),
-          ],
-        ),
-        height: 60,
-        child: TextField(
-          obscureText: true,
-          style: TextStyle(
-            color: Colors.black,
-          ),
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14),
-              prefixIcon: Icon(
-                Icons.lock,
-                color: Color(0xff0da8f4),
-              ),
-              hintText: 'Password',
-              hintStyle: TextStyle(
-                color: Colors.black,
-              )),
-        ),
-      ),
-    ],
-  );
-}
-
-Widget buildLoginBtn() {
-  return Container(
-    padding: EdgeInsets.symmetric(vertical: 25.0),
-    width: double.infinity,
-    child: RaisedButton(
-      elevation: 5,
-      onPressed: () {},
-      padding: EdgeInsets.all(15),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      color: Colors.white,
-      child: Text(
-        'LOGIN',
-        style: TextStyle(
-          color: Color(0xff0da8f4),
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-  );
 }
 
 class _LoginScreenState extends State<LoginScreen> {
@@ -177,15 +55,136 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(
                       height: 50.0,
                     ),
-                    buildEmail(),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'Email',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black26,
+                                offset: Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                          height: 60,
+                          child: TextField(
+                            onChanged: (emailText) {
+                            },
+                            keyboardType: TextInputType.emailAddress,
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              contentPadding: EdgeInsets.only(top: 14),
+                              prefixIcon: Icon(
+                                Icons.email,
+                                color: Color(0xff0da8f4),
+                              ),
+                              hintText: 'Email',
+                              hintStyle: TextStyle(
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                     SizedBox(
                       height: 20.0,
                     ),
-                    buildPassword(),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'Password',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black26,
+                                offset: Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                          height: 60,
+                          child: TextField(
+                            onChanged: (passText) {
+                            },
+                            obscureText: true,
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                contentPadding: EdgeInsets.only(top: 14),
+                                prefixIcon: Icon(
+                                  Icons.lock,
+                                  color: Color(0xff0da8f4),
+                                ),
+                                hintText: 'Password',
+                                hintStyle: TextStyle(
+                                  color: Colors.black,
+                                )),
+                          ),
+                        ),
+                      ],
+                    ),
                     SizedBox(
                       height: 20.0,
                     ),
-                    buildLoginBtn(),
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 25.0),
+                      width: double.infinity,
+                      child: RaisedButton(
+                        elevation: 5,
+                        onPressed: () {
+                          setState(() {
+                            //output here
+                          });
+                        },
+                        padding: EdgeInsets.all(15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        color: Colors.white,
+                        child: Text(
+                          'LOGIN',
+                          style: TextStyle(
+                            color: Color(0xff0da8f4),
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
